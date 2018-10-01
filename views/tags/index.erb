@@ -7,6 +7,16 @@
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%=tag.id %>"><%= tag.name %></a></td>
+    <td>
+      <form method="get" action="/tags/<%= tag.id %>/edit">
+        <input type="submit" value="Update Tag" />
+      </form>
+    </td>
+    <td>
+      <form method="post" action="/tags/<%= tag.id %>/delete">
+        <input type="submit" value="Delete Tag" />
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>
