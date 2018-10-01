@@ -117,7 +117,7 @@ transaction2.save()
 
 transaction3 = Transaction.new({
   "user_id" => user2.id,
-  # "tag_id" => tag1.id,
+  "tag_id" => tag1.id,
   "merchant_id" => merchant1.id,
   "currency_id" => currency1.id,
   "amount" => 34,

@@ -1,0 +1,26 @@
+<h1>Transaction is</h1>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Merchant</th>
+    <th>Currency</th>
+    <th>Amount</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td><%= @transaction.get_tag().name %></td>
+    <td><%= @transaction.get_merchant().name %></td>
+    <td><%= @transaction.get_currency().short_name %></td>
+    <td><%= @transaction.amount %></td>
+    <td><%= @transaction.trx_time %></td>
+  </tr>
+</table>
+
+<form method="post" action="/transactions/<%= @transaction.id %>/delete">
+  <input type="submit" value="Delete Transaction" />
+</form>
+
+<form method="get" action="/transactions/<%= @transaction.id %>/edit">
+  <input type="submit" value="Update Transaction" />
+</form>

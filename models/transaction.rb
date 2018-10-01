@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require("pry-byebug")
 
 class Transaction
   attr_accessor :user_id, :tag_id, :merchant_id, :currency_id, :amount, :trx_time
@@ -67,6 +68,28 @@ class Transaction
     sql = "DELETE FROM transactions WHERE id =$1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def get_tag()
+    sql = "SELECT * FROM tags WHERE id = $1"
+    values =[@tag_id]
+    tag = SqlRunner.run(sql, values)
+    # binding.pry
+    return Tag.new(tag.first())
+  end
+
+  def get_merchant()
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values =[@merchant_id]
+    merchant = SqlRunner.run(sql, values)
+    return Merchant.new(merchant.first())
+  end
+
+  def get_currency()
+    sql = "SELECT * FROM currencies WHERE id = $1"
+    values =[@currency_id]
+    currency = SqlRunner.run(sql, values)
+    return Currency.new(currency.first())
   end
 
   def self.all()
