@@ -1,0 +1,15 @@
+<h1>Tags</h1>
+
+<table>
+  <tr>
+    <th>Tag Name</th>
+  </tr>
+  <% for tag in @tags %>
+  <tr>
+    <td><a href="/tags/<%=tag.id %>"><%= tag.name %></a></td>
+  </tr>
+  <% end %>
+</table>
+<form method="get" action="/tags/new">
+  <input type="submit" value="Create a New Tag" name="name">
+</form>

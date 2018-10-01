@@ -62,14 +62,14 @@ class User
   def self.all()
     sql = "SELECT * FROM users"
     users = SqlRunner.run(sql)
-    return users.map {|user| user.new(user)}
+    return users.map {|user| User.new(user)}
   end
 
   def self.find(id)
     sql = "SELECT * FROM users WHERE id = $1"
     values =[id]
     user = SqlRunner.run(sql, values)
-    return user.new(user.first())
+    return User.new(user.first())
   end
 
   def self.delete_all()
