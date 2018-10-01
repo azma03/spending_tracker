@@ -1,0 +1,27 @@
+<h1>Currencys</h1>
+
+<table>
+  <tr>
+    <th>Currency Name</th>
+    <th>Currency Short Name</th>
+  </tr>
+  <% for currency in @currencies %>
+  <tr>
+    <td><a href="/currencies/<%=currency.id %>"><%= currency.name %></a></td>
+    <td><a href="/currencies/<%=currency.id %>"><%= currency.short_name %></a></td>
+    <td>
+      <form method="get" action="/currencies/<%= currency.id %>/edit">
+        <input type="submit" value="Update Currency" />
+      </form>
+    </td>
+    <td>
+      <form method="post" action="/currencies/<%= currency.id %>/delete">
+        <input type="submit" value="Delete Currency" />
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<form method="get" action="/currencies/new">
+  <input type="submit" value="Create a New Currency" name="name">
+</form>

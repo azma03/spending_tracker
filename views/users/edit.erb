@@ -1,0 +1,11 @@
+<form method="post" action="/users/<%=@user.id %>">
+  <label for="first-name">First Name:</label>
+  <input id="first_name" type="text" name="first_name" value= "<%= @user.first_name %>" />
+  <label for="last-name">Last Name:</label>
+  <input id="last_name" type="text" name="last_name" value= "<%= @user.last_name %>" />
+  <label for="email">Email:</label>
+  <input id="email" type="text" name="email" value= "<%= @user.email %>" />
+  <label for="budget">Budget:</label>
+  <input id="budget" type="text" name="budget" value= "<%= @user.budget %>" />
+  <input type="submit" value="Update User" />
+</form>

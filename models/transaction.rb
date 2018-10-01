@@ -70,7 +70,7 @@ class Transaction
   end
 
   def self.all()
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY id"
     transactions = SqlRunner.run(sql)
     return transactions.map {|transaction| Transaction.new(transaction)}
   end

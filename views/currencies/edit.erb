@@ -1,0 +1,7 @@
+<form method="post" action="/currencies/<%=@currency.id %>">
+  <label for="currency-name">Currency Name:</label>
+  <input id="name" type="text" name="name" value= "<%= @currency.name %>" />
+  <label for="short-name">Currency Short Name:</label>
+  <input id="short_name" type="text" name="short_name" value= "<%= @currency.short_name %>" />
+  <input type="submit" value="Update Currency" />
+</form>

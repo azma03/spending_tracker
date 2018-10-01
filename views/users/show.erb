@@ -1,0 +1,14 @@
+<h1>User is</h1>
+
+<label for="first_name"><%= @user.first_name %></label>
+<label for="last_name"><%= @user.last_name %></label>
+<label for="email"><%= @user.email %></label>
+<label for="budget"><%= @user.budget %></label>
+
+<form method="post" action="/users/<%= @user.id %>/delete">
+  <input type="submit" value="Delete User" />
+</form>
+
+<form method="get" action="/users/<%= @user.id %>/edit">
+  <input type="submit" value="Update User" />
+</form>

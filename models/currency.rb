@@ -50,7 +50,7 @@ class Currency
   end
 
   def self.all()
-    sql = "SELECT * FROM currencies"
+    sql = "SELECT * FROM currencies ORDER BY name ASC"
     currencies = SqlRunner.run(sql)
     return currencies.map {|currency| Currency.new(currency)}
   end

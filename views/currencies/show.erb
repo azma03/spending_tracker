@@ -1,0 +1,12 @@
+<h1>Currency is</h1>
+
+<label for="name"><%= @currency.name %></label>
+<label for="short_name"><%= @currency.short_name %></label>
+
+<form method="post" action="/currencies/<%= @currency.id %>/delete">
+  <input type="submit" value="Delete Currency" />
+</form>
+
+<form method="get" action="/currencies/<%= @currency.id %>/edit">
+  <input type="submit" value="Update Currency" />
+</form>
