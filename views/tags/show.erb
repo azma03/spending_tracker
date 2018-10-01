@@ -1,5 +1,11 @@
 <h1>Tag is</h1>
+
+<label for="name"><%= @tag.name %></label>
+
 <form method="post" action="/tags/<%= @tag.id %>/delete">
-  <label for="name"><%= @tag.name %></label>
   <input type="submit" value="Delete Tag" />
-<form>
+</form>
+
+<form method="get" action="/tags/<%= @tag.id %>/edit">
+  <input type="submit" value="Update Tag" />
+</form>

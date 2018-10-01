@@ -35,7 +35,7 @@ class Currency
     )
     =
     (
-      £1,
+      $1,
       $2
     )
     WHERE id = $3"

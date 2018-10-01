@@ -30,10 +30,10 @@ CREATE TABLE users (
 
 CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
-  user_id INT4 REFERENCES users(id),
-  tag_id INT4 REFERENCES tags(id),
-  merchant_id INT4 REFERENCES merchants(id),
-  currency_id INT4 REFERENCES currencies(id),
+  user_id INT4 REFERENCES users(id) ON DELETE CASCADE,
+  tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
+  merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
+  currency_id INT4 REFERENCES currencies(id) ON DELETE CASCADE,
   amount FLOAT8,
   trx_time timestamp
 );
