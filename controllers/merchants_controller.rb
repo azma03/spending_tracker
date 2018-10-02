@@ -4,6 +4,12 @@ require("pry-byebug")
 require_relative("../models/merchant.rb")
 also_reload("../models/*")
 
+set :show_exceptions, :after_handler
+
+error 400..510  do
+  erb(:"merchants/error")
+end
+
 get '/merchants' do
   @merchants = Merchant.all()
   # binding.pry

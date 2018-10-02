@@ -6,18 +6,18 @@ DROP TABLE IF EXISTS currencies;
 
 CREATE TABLE currencies (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL UNIQUE,
   short_name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE merchants (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE tags (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE users (
@@ -30,10 +30,10 @@ CREATE TABLE users (
 
 CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
-  user_id INT4 REFERENCES users(id) ON DELETE CASCADE,
-  tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
-  merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
-  currency_id INT4 REFERENCES currencies(id) ON DELETE CASCADE,
+  user_id INT4 REFERENCES users(id),
+  tag_id INT4 REFERENCES tags(id),
+  merchant_id INT4 REFERENCES merchants(id),
+  currency_id INT4 REFERENCES currencies(id),
   amount FLOAT8,
   trx_time timestamp
 );

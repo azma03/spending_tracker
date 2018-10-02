@@ -7,6 +7,12 @@ require_relative("../models/merchant.rb")
 require_relative("../models/currency.rb")
 also_reload("../models/*")
 
+set :show_exceptions, :after_handler
+
+error 400..510  do
+  erb(:"transactions/error")
+end
+
 get '/transactions' do
   @transactions = Transaction.all()
   @total_amount = Transaction.get_total_spendings()

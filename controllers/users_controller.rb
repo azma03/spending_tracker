@@ -4,6 +4,12 @@ require("pry-byebug")
 require_relative("../models/user.rb")
 also_reload("../models/*")
 
+set :show_exceptions, :after_handler
+
+error 400..510  do
+  erb(:"users/error")
+end
+
 get '/users' do
   @users = User.all()
   # binding.pry

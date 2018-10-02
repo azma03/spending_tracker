@@ -4,6 +4,24 @@ require("pry-byebug")
 require_relative("../models/tag.rb")
 also_reload("../models/*")
 
+set :show_exceptions, :after_handler
+
+# not_found do
+#   erb(:"tags/error")
+# end
+#
+# error 500 do
+#   "The tag alredy exists"
+# end
+
+error 400..510  do
+  erb(:"tags/error")
+end
+
+# error do
+#   'Sorry there was an error - ' + env['sinatra.error'].message
+# end
+
 get '/tags' do
   @tags = Tag.all()
   # binding.pry
