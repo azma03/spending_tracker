@@ -129,4 +129,19 @@ class Transaction
     return total_spendings
   end
 
+  def self.find_all_by_tag(tagid)
+    sql = "SELECT * FROM transactions WHERE tag_id = $1"
+    values = [tagid]
+    transactions = SqlRunner.run(sql, values)
+    return transactions.map {|transaction| Transaction.new(transaction)}
+  end
+
+  def self.get_total_spendings_by_tag(tagid)
+    sql = "SELECT sum(amount) FROM transactions WHERE tag_id = $1"
+    values = [tagid]
+    result = SqlRunner.run(sql, values)
+    total_spendings = result[0]["sum"].to_f
+    return total_spendings
+  end
+
 end

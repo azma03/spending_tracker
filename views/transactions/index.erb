@@ -5,7 +5,19 @@
     <option value="time_ASC">Sort by time - ASC</option>
     <option value="time_DESC">Sort by time - DESC</option>
   </select>
-  <input type="submit" value="GO" name="sort-by-time-btn">
+
+  <input type="submit" value="Go" name="sort-by-time-btn">
+<%#  <input type="submit" value="Clear Filters" name="clear_filters"> %>
+</form>
+
+<form method="get" action="/transactions/by_tag">
+  <select name="tag-select" id="tag-select">
+    <% for tag in @tags %>
+    <option value="<%=tag.id %>" ><%=tag.name %></option>
+    <%end %>
+  </select>
+
+  <input type="submit" value="Go" name="sort-by-tag-btn">
 </form>
 
 <table>
