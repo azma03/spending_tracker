@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Spending Tracker</title>
-</head>
-<body>
-  <main>
-    <nav>
-      <ul>
-        <li><a href="/admin">Admin</a></li>
-        <li><a href="/login">Login</a></li>
-      </ul>
-    </nav>
-    <nav>
-      <ul>
-        <li>
-          <a href="/tags">Tags</a>
-        </li>
-        <li>
-          <a href="/merchants">Merchants</a>
-        </li>
-        <li>
-          <a href="/transactions">Transactions</a>
-        </li>
-        <li>
-          <a href="/users">Users</a>
-        </li>
-        <li>
-          <a href="/currencies">Currencies</a>
-        </li>
-        <li>
-          <a href="/currency_rates">Currency Rates</a>
-        </li>
-      </ul>
-    </nav>
-</main>
-  <%= yield %>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spending Tracker</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/">Login</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li>
+            <a href="/tags">Tags</a>
+          </li>
+          <li>
+            <a href="/merchants">Merchants</a>
+          </li>
+          <li>
+            <a href="/transactions">Transactions</a>
+          </li>
+          <li>
+            <a href="/users">Users</a>
+          </li>
+          <li>
+            <a href="/currencies">Currencies</a>
+          </li>
+          <li>
+            <a href="/currency_rates">Currency Rates</a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <%= yield %>
+  </body>
 </html>
