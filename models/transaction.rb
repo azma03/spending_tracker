@@ -131,10 +131,10 @@ class Transaction
 
   def self.get_total_spendings()
     sql = "SELECT sum(t.amount * ct.rate)
-    FROM transactions t
-    INNER JOIN currency_rates ct
-    ON ct.source_currency_id = t.currency_id
-    WHERE ct.rate_date = DATE(t.trx_time)"
+      FROM transactions t
+      INNER JOIN currency_rates ct
+      ON ct.source_currency_id = t.currency_id
+      WHERE ct.rate_date = DATE(t.trx_time)"
     result = SqlRunner.run(sql)
     total_spendings = result[0]["sum"].to_f
     return total_spendings
@@ -147,8 +147,21 @@ class Transaction
     return transactions.map {|transaction| Transaction.new(transaction)}
   end
 
+  # def self.get_total_spendings_by_tag(tagid)
+  #   sql = "SELECT sum(amount) FROM transactions WHERE tag_id = $1"
+  #   values = [tagid]
+  #   result = SqlRunner.run(sql, values)
+  #   total_spendings = result[0]["sum"].to_f
+  #   return total_spendings
+  # end
+
   def self.get_total_spendings_by_tag(tagid)
-    sql = "SELECT sum(amount) FROM transactions WHERE tag_id = $1"
+    sql = "SELECT sum(t.amount * ct.rate)
+      FROM transactions t
+      INNER JOIN currency_rates ct
+      ON ct.source_currency_id = t.currency_id
+      WHERE ct.rate_date = DATE(t.trx_time)
+      AND t.tag_id = $1"
     values = [tagid]
     result = SqlRunner.run(sql, values)
     total_spendings = result[0]["sum"].to_f
@@ -164,19 +177,45 @@ class Transaction
     return transactions.map {|transaction| Transaction.new(transaction)}
   end
 
+  # def self.get_total_spendings_by_date(month, year)
+  #   sql = "SELECT sum(amount) FROM transactions
+  #   WHERE DATE_PART('month', trx_time) = $1
+  #   AND DATE_PART('year', trx_time) = $2"
+  #   values = [month, year]
+  #   result = SqlRunner.run(sql, values)
+  #   total_spendings = result[0]["sum"].to_f
+  #   return total_spendings
+  # end
+
   def self.get_total_spendings_by_date(month, year)
-    sql = "SELECT sum(amount) FROM transactions
-    WHERE DATE_PART('month', trx_time) = $1
-    AND DATE_PART('year', trx_time) = $2"
+    sql = "SELECT sum(t.amount * ct.rate)
+      FROM transactions t
+      INNER JOIN currency_rates ct
+      ON ct.source_currency_id = t.currency_id
+      WHERE ct.rate_date = DATE(t.trx_time)
+      AND DATE_PART('month', t.trx_time) = $1
+      AND DATE_PART('year', t.trx_time) = $2"
     values = [month, year]
     result = SqlRunner.run(sql, values)
     total_spendings = result[0]["sum"].to_f
     return total_spendings
   end
 
+  # def self.get_total_savings(user)
+  #   sql = "SELECT sum(amount) FROM transactions
+  #   WHERE DATE_PART('month', trx_time) = DATE_PART('month', CURRENT_DATE)"
+  #   spendings = SqlRunner.run(sql)
+  #   total_savings = (user.budget.to_f - spendings[0]["sum"].to_f).round(2)
+  #   return total_savings
+  # end
+
   def self.get_total_savings(user)
-    sql = "SELECT sum(amount) FROM transactions
-    WHERE DATE_PART('month', trx_time) = DATE_PART('month', CURRENT_DATE)"
+    sql = "SELECT sum(t.amount * ct.rate)
+      FROM transactions t
+      INNER JOIN currency_rates ct
+      ON ct.source_currency_id = t.currency_id
+      WHERE ct.rate_date = DATE(t.trx_time)
+      AND DATE_PART('month', t.trx_time) = DATE_PART('month', CURRENT_DATE)"
     spendings = SqlRunner.run(sql)
     total_savings = (user.budget.to_f - spendings[0]["sum"].to_f).round(2)
     return total_savings
