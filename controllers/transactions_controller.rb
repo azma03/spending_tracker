@@ -21,32 +21,32 @@ get '/transactions' do
   #   @total_amount = Transaction.get_total_spendings()
   #   erb(:"transactions/index")
   # else
-@tags = Tag.all()
-@months = DateRange.month()
-@years = DateRange.year()
-    if params["sort-by-time-select"] == "time_ASC"
-      @transactions = Transaction.all_by_time_asc()
-      @total_amount = Transaction.get_total_spendings()
-    elsif params["sort-by-time-select"] == "time_DESC"
-      @transactions = Transaction.all_by_time_desc()
-      @total_amount = Transaction.get_total_spendings()
-    else
-      @transactions = Transaction.all()
-      @total_amount = Transaction.get_total_spendings()
-    end
+  @tags = Tag.all()
+  @months = DateRange.month()
+  @years = DateRange.year()
+  if params["sort-by-time-select"] == "time_ASC"
+    @transactions = Transaction.all_by_time_asc()
+    # @total_amount = Transaction.get_total_spendings()
+  elsif params["sort-by-time-select"] == "time_DESC"
+    @transactions = Transaction.all_by_time_desc()
+    # @total_amount = Transaction.get_total_spendings()
+  else
+    @transactions = Transaction.all()
+    # @total_amount = Transaction.get_total_spendings()
+  end
 
-    # tag filter
-    # if params["tag-select"]
-    #   # binding.pry
-    #   @transactions = Transaction.find_all_by_tag(params["tag-select"].to_i)
-    #   @total_amount = Transaction.get_total_spendings_by_tag(params["tag-select"].to_i)
-    # else
-    #   @transactions = Transaction.all()
-    #   @total_amount = Transaction.get_total_spendings()
-    # end
-    # # @total_amount = Transaction.get_total_spendings()
-    erb(:"transactions/index")
+  # tag filter
+  # if params["tag-select"]
+  #   # binding.pry
+  #   @transactions = Transaction.find_all_by_tag(params["tag-select"].to_i)
+  #   @total_amount = Transaction.get_total_spendings_by_tag(params["tag-select"].to_i)
+  # else
+  #   @transactions = Transaction.all()
+  #   @total_amount = Transaction.get_total_spendings()
   # end
+  @total_amount = Transaction.get_total_spendings()
+  erb(:"transactions/index")
+# end
 end
 
 get '/transactions/by_tag' do
