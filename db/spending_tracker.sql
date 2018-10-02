@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS currency_rates;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS merchants;
@@ -36,4 +37,12 @@ CREATE TABLE transactions (
   currency_id INT4 REFERENCES currencies(id),
   amount FLOAT8,
   trx_time timestamp
+);
+
+CREATE TABLE currency_rates (
+  id SERIAL4 PRIMARY KEY,
+  source_currency_id INT4 REFERENCES currencies(id),
+  destination_currency_id INT4 REFERENCES currencies(id),
+  rate FLOAT8,
+  rate_date date
 );

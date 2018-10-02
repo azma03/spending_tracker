@@ -35,7 +35,7 @@ class TestTransaction < MiniTest::Test
       "merchant_id" => @merchant1.id,
       "currency_id" => @currency1.id,
       "amount" => 50.35,
-      "trx_time" => '2018-10-01 15:00:00'
+      "trx_time" => '2018-10-01'
       })
   end
 
@@ -66,7 +66,7 @@ class TestTransaction < MiniTest::Test
 
   def test_trx_time()
     result = @transaction1.trx_time
-    assert_equal('2018-10-01 15:00:00', result)
+    assert_equal('2018-10-01', result)
   end
 
 end
