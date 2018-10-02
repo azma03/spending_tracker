@@ -26,7 +26,7 @@
 
   <label for="timestamp">Timestamp(YYYY-MM-DD):</label>
   <%#<input id="trx-time" type="text" name="trx_time" value= "<%= @transaction.trx_time %><%#" /> %>
-  <input id="trx-time" type="date" name="trx_time" value= "<%= @transaction.trx_time %>" />
+  <input id="trx-time" type="date" name="trx_time" value= "<%= Date.parse(@transaction.trx_time) %>" />
 
   <input type="submit" value="Update Transaction" />
 </form>

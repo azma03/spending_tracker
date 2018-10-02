@@ -122,8 +122,19 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  # def self.get_total_spendings()
+  #   sql = "SELECT sum(amount) FROM transactions"
+  #   result = SqlRunner.run(sql)
+  #   total_spendings = result[0]["sum"].to_f
+  #   return total_spendings
+  # end
+
   def self.get_total_spendings()
-    sql = "SELECT sum(amount) FROM transactions"
+    sql = "SELECT sum(t.amount * ct.rate)
+    FROM transactions t
+    INNER JOIN currency_rates ct
+    ON ct.source_currency_id = t.currency_id
+    WHERE ct.rate_date = DATE(t.trx_time)"
     result = SqlRunner.run(sql)
     total_spendings = result[0]["sum"].to_f
     return total_spendings

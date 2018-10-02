@@ -5,6 +5,7 @@ require_relative('controllers/merchants_controller')
 require_relative('controllers/users_controller')
 require_relative('controllers/currencies_controller')
 require_relative('controllers/transactions_controller')
+require_relative('controllers/currency_rates_controller')
 
 # error 400..510  do
 #   erb(:error)

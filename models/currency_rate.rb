@@ -59,6 +59,22 @@ class CurrencyRate
     SqlRunner.run(sql, values)
   end
 
+  def get_source_currency()
+    sql = "SELECT * FROM currencies WHERE id = $1"
+    values =[@source_currency_id]
+    currency = SqlRunner.run(sql, values)
+    binding.pry
+    return Currency.new(currency.first())
+  end
+
+  def get_destination_currency()
+    sql = "SELECT * FROM currencies WHERE id = $1"
+    values =[@destination_currency_id]
+    currency = SqlRunner.run(sql, values)
+    binding.pry
+    return Currency.new(currency.first())
+  end
+
   def self.all()
     sql = "SELECT * FROM currency_rates ORDER BY id ASC"
     currency_rates = SqlRunner.run(sql)

@@ -1,0 +1,31 @@
+<h1>Currency Rates</h1>
+
+<table>
+  <tr>
+    <th>Source Currency</th>
+    <th>Destination Currency</th>
+    <th>Rate</th>
+    <th>Date</th>
+  </tr>
+  <% for currency_rate in @currency_rates %>
+  <tr>
+    <td><a href="/currency_rates/<%=currency_rate.id %>"><%= currency_rate.get_source_currency().short_name %></a></td>
+    <td><a href="/currency_rates/<%=currency_rate.id %>"><%= currency_rate.get_destination_currency().short_name  %></a></td>
+    <td><a href="/currency_rates/<%=currency_rate.id %>"><%= currency_rate.rate %></a></td>
+    <td><a href="/currency_rates/<%=currency_rate.id %>"><%= currency_rate.rate_date %></a></td>
+    <td>
+      <form method="get" action="/currency_rates/<%= currency_rate.id %>/edit">
+        <input type="submit" value="Update Currency Rate" />
+      </form>
+    </td>
+    <td>
+      <form method="post" action="/currency_rates/<%= currency_rate.id %>/delete">
+        <input type="submit" value="Delete Currency Rate" />
+      </form>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<form method="get" action="/currency_rates/new">
+  <input type="submit" value="Create a New Currency Rate" name="name">
+</form>

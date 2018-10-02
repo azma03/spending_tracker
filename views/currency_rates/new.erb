@@ -1,0 +1,26 @@
+<h1>Creating a new currency_rate</h1>
+
+<form method="post" action="/currency_rates">
+
+  <label for="source-currency-select">Source Currency:</label>
+  <select name="source_currency_id" id="source-currency-select">
+    <% for currency in @currencies %>
+    <option value="<%=currency.id %>" ><%=currency.short_name %></option>
+    <%end %>
+  </select>
+
+  <label for="destination-currency-select">Destination Currency:</label>
+  <select name="destination_currency_id" id="destination-currency-select">
+    <% for currency in @currencies %>
+    <option value="<%=currency.id %>" ><%=currency.short_name %></option>
+    <%end %>
+  </select>
+
+  <label for="rate">Rate:</label>
+  <input id="rate" type="text" name="rate" />
+
+  <label for="rate_date">Date(YYYY-MM-DD):</label>
+  <input id="rate_date" type="date" name="rate_date">
+
+  <input type="submit" value="Create Currency Rate" />
+</form>
