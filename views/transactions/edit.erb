@@ -3,21 +3,21 @@
   <label for="tag-select">Tag:</label>
   <select name="tag_id" id="tag-select" value= "<%= @transaction.get_tag().name %>">
     <% for tag in @tags %>
-    <option value="<%=tag.id %>" <%= "selected" if tag.id == @transaction.tag_id %> ><%=tag.name %></option>
+    <option value="<%=tag.id %>" <%= "selected" if tag.id == @transaction.tag_id.to_i %> ><%=tag.name %></option>
     <%end %>
   </select>
 
   <label for="merchant-select">Merchant:</label>
   <select name="merchant_id" id="merchant-select">
     <% for merchant in @merchants %>
-    <option value="<%=merchant.id %>" <%= "selected" if merchant.id == @transaction.merchant_id %> ><%=merchant.name %></option>
+    <option value="<%=merchant.id %>" <%= "selected" if merchant.id == @transaction.merchant_id.to_i %> ><%=merchant.name %></option>
     <%end %>
   </select>
 
   <label for="currency-select">Currency:</label>
   <select name="currency_id" id="currency-select">
     <% for currency in @currencies %>
-    <option value="<%=currency.id %>" <%= "selected" if currency.id == @transaction.currency_id %> ><%=currency.short_name %></option>
+    <option value="<%=currency.id %>" <%= "selected" if currency.id == @transaction.currency_id.to_i %> ><%=currency.short_name %></option>
     <%end %>
   </select>
 
