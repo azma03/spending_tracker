@@ -26,8 +26,10 @@
   <label for="amount">Amount:</label>
   <input id="amount" type="text" name="amount" />
 
-  <label for="timestamp">Date and Time (YYYY-MM-DD hh:min:sec):</label>
-  <input id="trx-time" type="text" name="trx_time" />
+  <label for="timestamp">Timestamp(YYYY-MM-DD):</label>
+<%#  <input id="trx-time" type="text" name="trx_time" /> %>
+  <input id="trx-time" type="date" name="trx_time">
+<%#  <input type="time" name="trx_time"> %>
 
   <input type="submit" value="Create Transaction" />
 </form>

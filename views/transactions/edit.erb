@@ -24,8 +24,9 @@
   <label for="amount">Amount:</label>
   <input id="amount" type="text" name="amount" value= "<%= @transaction.amount %>" />
 
-  <label for="timestamp">Date and Time (YYYY-MM-DD hh:min:sec):</label>
-  <input id="trx-time" type="text" name="trx_time" value= "<%= @transaction.trx_time %>" />
+  <label for="timestamp">Timestamp(YYYY-MM-DD):</label>
+  <%#<input id="trx-time" type="text" name="trx_time" value= "<%= @transaction.trx_time %><%#" /> %>
+  <input id="trx-time" type="date" name="trx_time" value= "<%= @transaction.trx_time %>" />
 
   <input type="submit" value="Update Transaction" />
 </form>
