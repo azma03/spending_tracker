@@ -20,6 +20,23 @@
   <input type="submit" value="Go" name="sort-by-tag-btn">
 </form>
 
+<form method="get" action="/transactions/by_date">
+  <select name="month-select" id="month-select">
+    <% for month in @months %>
+    <option value="<%= @months.find_index(month) %>" ><%=month %></option>
+    <%end %>
+  </select>
+
+  <select name="year-select" id="year-select">
+    <% for year in @years %>
+    <option value="<%= year %>" ><%=year %></option>
+    <%end %>
+  </select>
+
+
+  <input type="submit" value="Go" name="sort-by-date-btn">
+</form>
+
 <table>
   <tr>
     <th>Tag</th>

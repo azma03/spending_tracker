@@ -5,6 +5,7 @@ require_relative("../models/transaction.rb")
 require_relative("../models/tag.rb")
 require_relative("../models/merchant.rb")
 require_relative("../models/currency.rb")
+require_relative("../models/date_range.rb")
 also_reload("../models/*")
 
 # set :show_exceptions, :after_handler
@@ -21,6 +22,8 @@ get '/transactions' do
   #   erb(:"transactions/index")
   # else
 @tags = Tag.all()
+@months = DateRange.month()
+@years = DateRange.year()
     if params["sort-by-time-select"] == "time_ASC"
       @transactions = Transaction.all_by_time_asc()
       @total_amount = Transaction.get_total_spendings()
@@ -48,6 +51,8 @@ end
 
 get '/transactions/by_tag' do
     @tags = Tag.all()
+    @months = DateRange.month()
+    @years = DateRange.year()
   if params["tag-select"]
     # binding.pry
     @transactions = Transaction.find_all_by_tag(params["tag-select"].to_i)
@@ -59,6 +64,25 @@ get '/transactions/by_tag' do
   # @total_amount = Transaction.get_total_spendings()
   erb(:"transactions/index")
 end
+
+get '/transactions/by_date' do
+    @tags = Tag.all()
+    @months = DateRange.month()
+    @years = DateRange.year()
+  if (params["month-select"] || params["year-select"])
+    # binding.pry
+    @transactions = Transaction.find_all_by_date(params["month-select"].to_i + 1, params["year-select"].to_i)
+    @total_amount = Transaction.get_total_spendings_by_date(params["month-select"].to_i + 1, params["year-select"].to_i)
+  else
+    @transactions = Transaction.all()
+    @total_amount = Transaction.get_total_spendings()
+  end
+  # @total_amount = Transaction.get_total_spendings()
+  # binding.pry
+  erb(:"transactions/index")
+end
+
+
 
 get '/transactions/new' do
   @tags = Tag.all()
