@@ -70,6 +70,12 @@
     <td>Total Amount</td>
     <td><%= @total_amount %></td>
   </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Your savings for this month are:</td>
+    <td><%= @total_savings %></td>
+  </tr>
 </table>
 <form method="get" action="/transactions/new">
   <input type="submit" value="Create a New Transaction" name="name">

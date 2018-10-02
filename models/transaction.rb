@@ -163,4 +163,12 @@ class Transaction
     return total_spendings
   end
 
+  def self.get_total_savings(user)
+    sql = "SELECT sum(amount) FROM transactions
+    WHERE DATE_PART('month', trx_time) = DATE_PART('month', CURRENT_DATE)"
+    spendings = SqlRunner.run(sql)
+    total_savings = (user.budget.to_f - spendings[0]["sum"].to_f).round(2)
+    return total_savings
+  end
+
 end

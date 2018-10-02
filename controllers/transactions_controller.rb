@@ -45,6 +45,7 @@ get '/transactions' do
   #   @total_amount = Transaction.get_total_spendings()
   # end
   @total_amount = Transaction.get_total_spendings()
+  @total_savings = Transaction.get_total_savings(User.all.first())
   erb(:"transactions/index")
 # end
 end
@@ -62,6 +63,7 @@ get '/transactions/by_tag' do
     @total_amount = Transaction.get_total_spendings()
   end
   # @total_amount = Transaction.get_total_spendings()
+  @total_savings = Transaction.get_total_savings(User.all.first())
   erb(:"transactions/index")
 end
 
@@ -79,6 +81,7 @@ get '/transactions/by_date' do
   end
   # @total_amount = Transaction.get_total_spendings()
   # binding.pry
+  @total_savings = Transaction.get_total_savings(User.all.first())
   erb(:"transactions/index")
 end
 
