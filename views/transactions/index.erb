@@ -1,5 +1,13 @@
 <h1>Transactions</h1>
 
+<form method="get" action="/transactions">
+  <select name="sort-by-time-select" id="sort-by-time-select">
+    <option value="time_ASC">Sort by time - ASC</option>
+    <option value="time_DESC">Sort by time - DESC</option>
+  </select>
+  <input type="submit" value="GO" name="sort-by-time-btn">
+</form>
+
 <table>
   <tr>
     <th>Tag</th>

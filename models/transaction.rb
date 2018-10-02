@@ -98,6 +98,18 @@ class Transaction
     return transactions.map {|transaction| Transaction.new(transaction)}
   end
 
+  def self.all_by_time_asc()
+    sql = "SELECT * FROM transactions ORDER BY trx_time ASC"
+    transactions = SqlRunner.run(sql)
+    return transactions.map {|transaction| Transaction.new(transaction)}
+  end
+
+  def self.all_by_time_desc()
+    sql = "SELECT * FROM transactions ORDER BY trx_time DESC"
+    transactions = SqlRunner.run(sql)
+    return transactions.map {|transaction| Transaction.new(transaction)}
+  end
+
   def self.find(id)
     sql = "SELECT * FROM transactions WHERE id = $1"
     values =[id]

@@ -14,10 +14,16 @@ error 400..510  do
 end
 
 get '/transactions' do
-  @transactions = Transaction.all()
-  @total_amount = Transaction.get_total_spendings()
   # binding.pry
-  erb(:"transactions/index")
+  if params["sort-by-time-select"] == "time_ASC"
+    @transactions = Transaction.all_by_time_asc()
+  elsif params["sort-by-time-select"] == "time_DESC"
+    @transactions = Transaction.all_by_time_desc()
+  else
+    @transactions = Transaction.all()
+  end
+    @total_amount = Transaction.get_total_spendings()
+    erb(:"transactions/index")
 end
 
 get '/transactions/new' do
