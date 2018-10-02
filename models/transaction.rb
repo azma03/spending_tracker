@@ -110,5 +110,11 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def self.get_total_spendings()
+    sql = "SELECT sum(amount) FROM transactions"
+    result = SqlRunner.run(sql)
+    total_spendings = result[0]["sum"].to_f
+    return total_spendings
+  end
 
 end
