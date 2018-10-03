@@ -1,9 +1,11 @@
 <h1>Transactions</h1>
 
+<label for="filters">Sort by</label>
 <form method="get" action="/transactions">
+  <label for="time-filter">Time</label>
   <select name="sort-by-time-select" id="sort-by-time-select">
-    <option value="time_ASC">Sort by time - ASC</option>
-    <option value="time_DESC">Sort by time - DESC</option>
+    <option value="time_ASC">Time - ASC</option>
+    <option value="time_DESC">Time - DESC</option>
   </select>
 
   <input type="submit" value="Go" name="sort-by-time-btn">
@@ -11,6 +13,7 @@
 </form>
 
 <form method="get" action="/transactions/by_tag">
+  <label for="time-filter">Category</label>
   <select name="tag-select" id="tag-select">
     <% for tag in @tags %>
     <option value="<%=tag.id %>" ><%=tag.name %></option>
@@ -21,6 +24,7 @@
 </form>
 
 <form method="get" action="/transactions/by_date">
+  <label for="time-filter">Date Range</label>
   <select name="month-select" id="month-select">
     <% for month in @months %>
     <option value="<%= @months.find_index(month) %>" ><%=month %></option>
@@ -65,15 +69,19 @@
   </tr>
   <% end %>
   <tr>
+  </tr>
+  <tr>
     <td></td>
     <td></td>
     <td>Total Amount(GBP)</td>
     <td><%= @total_amount %></td>
   </tr>
   <tr>
+  </tr>
+  <tr>
     <td></td>
     <td></td>
-    <td>Your savings for this month are:</td>
+    <td>Your savings for the current month (<%= DateRange.month()[Date.today.strftime("%m").to_i - 1] %>) are:</td>
     <td><%= @total_savings %></td>
   </tr>
 </table>
