@@ -1,8 +1,7 @@
 <h1>Transactions</h1>
 
-<label for="filters">Sort by</label>
 <form method="get" action="/transactions">
-  <label for="time-filter">Time</label>
+  <label for="time-filter" class="filter-text">Sort by Time: </label>
   <select name="sort-by-time-select" id="sort-by-time-select">
     <option value="time_ASC">Time - ASC</option>
     <option value="time_DESC">Time - DESC</option>
@@ -13,7 +12,7 @@
 </form>
 
 <form method="get" action="/transactions/by_tag">
-  <label for="time-filter">Category</label>
+  <label for="time-filter" class="filter-text">Filter by Category: </label>
   <select name="tag-select" id="tag-select">
     <% for tag in @tags %>
     <option value="<%=tag.id %>" ><%=tag.name %></option>
@@ -24,7 +23,7 @@
 </form>
 
 <form method="get" action="/transactions/by_date">
-  <label for="time-filter">Date Range</label>
+  <label for="time-filter" class="filter-text">Filter by Month: </label>
   <select name="month-select" id="month-select">
     <% for month in @months %>
     <option value="<%= @months.find_index(month) %>" ><%=month %></option>

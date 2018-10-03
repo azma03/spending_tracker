@@ -44,10 +44,34 @@ footer {
 
 .flex {
   display: flex;
+  justify-content: left;
 }
 
 .flex--row {
   flex-direction: row;
+}
+
+.flex :first-child {
+  width: 200px;
+}
+
+table {
+  border:  1px solid #929292;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+td, th {
+  text-align: left;
+}
+
+td {
+  padding: 10px 20px 0px 0px;
+}
+
+th {
+  padding: 0px 20px 10px 0px;
+  border-bottom: 1px solid #929292;
 }
 
 td a, td a:link, td a:visited {
@@ -56,15 +80,10 @@ td a, td a:link, td a:visited {
   padding: 1px;
 }
 
-table {
-  border: solid #929292 1px;
-}
-
 td a:hover, td a:active, td a:focus {
   background: #FCA311;
 }
 
-/* tr:nth-child(even) a {
-    background-color: #FFFFFF;
-    color: #000000;
-} */
+.filter-text {
+  font-size: 12px;
+}
