@@ -13,7 +13,7 @@
     <td><%= @transaction.get_merchant().name %></td>
     <td><%= @transaction.get_currency().short_name %></td>
     <td><%= @transaction.amount %></td>
-    <td><%= @transaction.trx_time %></td>
+    <td><%= Date.parse(@transaction.trx_time) %></td>
   </tr>
 </table>
 

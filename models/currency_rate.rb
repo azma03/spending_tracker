@@ -63,7 +63,7 @@ class CurrencyRate
     sql = "SELECT * FROM currencies WHERE id = $1"
     values =[@source_currency_id]
     currency = SqlRunner.run(sql, values)
-    binding.pry
+    # binding.pry
     return Currency.new(currency.first())
   end
 
@@ -71,7 +71,7 @@ class CurrencyRate
     sql = "SELECT * FROM currencies WHERE id = $1"
     values =[@destination_currency_id]
     currency = SqlRunner.run(sql, values)
-    binding.pry
+    # binding.pry
     return Currency.new(currency.first())
   end
 

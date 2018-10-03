@@ -51,7 +51,7 @@
     <td><a href="/transactions/<%=transaction.id %>"><%= transaction.get_merchant().name %></a></td>
     <td><a href="/transactions/<%=transaction.id %>"><%= transaction.get_currency().short_name %></a></td>
     <td><a href="/transactions/<%=transaction.id %>"><%= transaction.amount %></a></td>
-    <td><a href="/transactions/<%=transaction.id %>"><%= transaction.trx_time %></a></td>
+    <td><a href="/transactions/<%=transaction.id %>"><%= Date.parse(transaction.trx_time) %></a></td>
     <td>
       <form method="get" action="/transactions/<%= transaction.id %>/edit">
         <input type="submit" value="Update Transaction" />
