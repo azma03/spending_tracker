@@ -56,13 +56,14 @@ td a, td a:link, td a:visited {
   padding: 1px;
 }
 
+table {
+  border: solid #929292 1px;
+}
+
 td a:hover, td a:active, td a:focus {
   background: #FCA311;
 }
 
-table {
-  border: solid #929292 1px;
-}
 /* tr:nth-child(even) a {
     background-color: #FFFFFF;
     color: #000000;

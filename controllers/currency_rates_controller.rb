@@ -5,11 +5,11 @@ require_relative("../models/currency.rb")
 require_relative("../models/currency_rate.rb")
 also_reload("../models/*")
 
-# set :show_exceptions, :after_handler
+set :show_exceptions, :after_handler
 
-# error 400..510  do
-#   erb(:"currencies/error")
-# end
+error 400..510  do
+  erb(:"currencies/error")
+end
 
 get '/currency_rates' do
   @currency_rates = CurrencyRate.all()

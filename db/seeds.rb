@@ -152,52 +152,124 @@ currency_rate3= CurrencyRate.new({
 currency_rate3.save()
 
 currency_rate4= CurrencyRate.new({
-  "source_currency_id" => currency2.id,
+  "source_currency_id" => currency1.id,
   "destination_currency_id" => currency1.id,
-  "rate" => 0.77,
-  "rate_date" => '2018-09-30'
+  "rate" => 1,
+  "rate_date" => '2018-10-03'
   })
 currency_rate4.save()
 
 currency_rate5= CurrencyRate.new({
-  "source_currency_id" => currency2.id,
+  "source_currency_id" => currency1.id,
   "destination_currency_id" => currency1.id,
-  "rate" => 0.77,
-  "rate_date" => '2018-10-01'
+  "rate" => 1,
+  "rate_date" => '2018-10-04'
   })
 currency_rate5.save()
 
 currency_rate6= CurrencyRate.new({
-  "source_currency_id" => currency2.id,
+  "source_currency_id" => currency1.id,
   "destination_currency_id" => currency1.id,
-  "rate" => 0.77,
-  "rate_date" => '2018-10-02'
+  "rate" => 1,
+  "rate_date" => '2018-10-05'
   })
 currency_rate6.save()
 
 currency_rate7= CurrencyRate.new({
-  "source_currency_id" => currency3.id,
+  "source_currency_id" => currency2.id,
   "destination_currency_id" => currency1.id,
-  "rate" => 0.89,
+  "rate" => 0.77,
   "rate_date" => '2018-09-30'
   })
 currency_rate7.save()
 
 currency_rate8= CurrencyRate.new({
-  "source_currency_id" => currency3.id,
+  "source_currency_id" => currency2.id,
   "destination_currency_id" => currency1.id,
-  "rate" => 0.89,
+  "rate" => 0.77,
   "rate_date" => '2018-10-01'
   })
 currency_rate8.save()
 
 currency_rate9= CurrencyRate.new({
+  "source_currency_id" => currency2.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.77,
+  "rate_date" => '2018-10-02'
+  })
+currency_rate9.save()
+
+currency_rate10= CurrencyRate.new({
+  "source_currency_id" => currency2.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.77,
+  "rate_date" => '2018-10-03'
+  })
+currency_rate10.save()
+
+currency_rate11= CurrencyRate.new({
+  "source_currency_id" => currency2.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.77,
+  "rate_date" => '2018-10-04'
+  })
+currency_rate11.save()
+
+currency_rate12= CurrencyRate.new({
+  "source_currency_id" => currency2.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.77,
+  "rate_date" => '2018-10-05'
+  })
+currency_rate12.save()
+
+currency_rate13= CurrencyRate.new({
+  "source_currency_id" => currency3.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.89,
+  "rate_date" => '2018-09-30'
+  })
+currency_rate13.save()
+
+currency_rate14= CurrencyRate.new({
+  "source_currency_id" => currency3.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.89,
+  "rate_date" => '2018-10-01'
+  })
+currency_rate14.save()
+
+currency_rate15= CurrencyRate.new({
   "source_currency_id" => currency3.id,
   "destination_currency_id" => currency1.id,
   "rate" => 0.89,
   "rate_date" => '2018-10-02'
   })
-currency_rate9.save()
+currency_rate15.save()
 
-binding.pry
-nil
+currency_rate16= CurrencyRate.new({
+  "source_currency_id" => currency3.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.89,
+  "rate_date" => '2018-10-03'
+  })
+currency_rate16.save()
+
+currency_rate17= CurrencyRate.new({
+  "source_currency_id" => currency3.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.89,
+  "rate_date" => '2018-10-04'
+  })
+currency_rate17.save()
+
+currency_rate18= CurrencyRate.new({
+  "source_currency_id" => currency3.id,
+  "destination_currency_id" => currency1.id,
+  "rate" => 0.89,
+  "rate_date" => '2018-10-05'
+  })
+currency_rate18.save()
+
+# binding.pry
+# nil

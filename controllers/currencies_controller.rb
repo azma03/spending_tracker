@@ -3,12 +3,12 @@ require("sinatra/contrib/all")
 require("pry-byebug")
 require_relative("../models/currency.rb")
 also_reload("../models/*")
-# 
-# set :show_exceptions, :after_handler
-#
-# error 400..510  do
-#   erb(:"currencies/error")
-# end
+
+set :show_exceptions, :after_handler
+
+error 400..510  do
+  erb(:"currencies/error")
+end
 
 get '/currencies' do
   @currencies = Currency.all()

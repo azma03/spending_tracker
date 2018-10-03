@@ -8,11 +8,11 @@ require_relative("../models/currency.rb")
 require_relative("../models/date_range.rb")
 also_reload("../models/*")
 
-# set :show_exceptions, :after_handler
+set :show_exceptions, :after_handler
 
-# error 400..510  do
-#   erb(:"transactions/error")
-# end
+error 400..510  do
+  erb(:"transactions/error")
+end
 
 get '/transactions' do
    # binding.pry
