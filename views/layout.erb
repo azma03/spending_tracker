@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Spending Tracker</title>
+    <link rel="stylesheet" type="text/css" href="/styles/structures.css">
   </head>
   <body>
-    <main>
-      <nav>
-        <ul>
-          <li><a href="/admin">Admin</a></li>
-          <li><a href="/">Login</a></li>
-        </ul>
-      </nav>
-      <nav>
+    <div class="banner">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin">Admin</a></li>
+      </ul>
+    </nav>
+    <main class="flex flex--row">
+      <aside>
         <ul>
           <li>
             <a href="/tags">Tags</a>
@@ -35,8 +38,13 @@
             <a href="/currency_rates">Currency Rates</a>
           </li>
         </ul>
-      </nav>
+      </aside>
+      <section class="content">
+        <%= yield %>
+    </section>
     </main>
-    <%= yield %>
+    <footer>
+      <p>Footer Contents</p>
+    </footer>
   </body>
 </html>

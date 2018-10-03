@@ -1,0 +1,69 @@
+
+html {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+body {
+  background-color: #14213D;
+  color: #E5E5E5;
+}
+
+.banner {
+  background: url('/images/ST_Logo.png');
+  height: 170px;
+  width: 100%;
+  background-size: 100%;
+}
+
+nav ul {
+  display: flex;
+  padding-left: 0;
+  justify-content: space-around;
+  background: #FCA311;
+}
+
+li {
+  list-style-type: none;
+}
+
+li a, li a:link, li a:visited {
+  text-decoration: none;
+  color: #E5E5E5;
+  padding: 1px;
+}
+
+li a:hover, li a:active, li a:focus {
+  background: #FCA311;
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  color: #E5E5E5;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+td a, td a:link, td a:visited {
+  text-decoration: none;
+  color: #E5E5E5;
+  padding: 1px;
+}
+
+td a:hover, td a:active, td a:focus {
+  background: #FCA311;
+}
+
+table {
+  border: solid #929292 1px;
+}
+/* tr:nth-child(even) a {
+    background-color: #FFFFFF;
+    color: #000000;
+} */
